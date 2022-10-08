@@ -10,26 +10,20 @@ public class World {
         out.println("system zakończył działanie");
     }
     static void run(Direction[] arr){
-//        out.println("zwierzak idzie do przodu");
         int len = arr.length;
-//        String result  = "";
-//        for(int i = 0; i < len - 1; i++){
-//            result += arr[i] + ", ";
-//        }
-//        out.println(result + arr[len - 1]);
         out.println("Start");
         for(int i = 0; i < len; i++){
             switch(arr[i]){
-                case f:
+                case FRONT:
                     out.println("Zwierzak idzie do przodu");
                     break;
-                case b:
+                case BACK:
                     out.println("Zwierzak idzie do tyłu");
                     break;
-                case r:
+                case RIGHT:
                     out.println("Zwierzak skręca w prawo");
                     break;
-                case l:
+                case LEFT:
                     out.println("Zwierzak skręca w lewo");
                     break;
             }
@@ -42,20 +36,21 @@ public class World {
         for(int i = 0; i < len; i++){
             switch(arr[i]){
                 case "f":
-                    res[i] = Direction.f;
+                    res[i] = Direction.FRONT;
                     break;
                 case "b":
-                    res[i] = Direction.b;
+                    res[i] = Direction.BACK;
                     break;
                 case "r":
-                    res[i] = Direction.r;
+                    res[i] = Direction.RIGHT;
                     break;
                 case "l":
-                    res[i] = Direction.l;
+                    res[i] = Direction.LEFT;
                     break;
+                default:
+                    res[i] = Direction.ERROR;
             }
         }
         return res;
     }
 }
-//13
