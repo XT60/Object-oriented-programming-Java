@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="lab01 ignoring unspecified arguments">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
-    </list>
+    <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="lab01 ignoring unspecified arguments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +96,7 @@
       <workItem from="1665086711038" duration="4157000" />
       <workItem from="1665091910101" duration="1898000" />
       <workItem from="1665093913325" duration="153000" />
-      <workItem from="1665213234541" duration="2506000" />
+      <workItem from="1665213234541" duration="2626000" />
     </task>
     <task id="LOCAL-00001" summary="lab01">
       <created>1665213426438</created>
