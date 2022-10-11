@@ -27,7 +27,7 @@ public class Vector2d {
     }
 
     boolean follows(Vector2d other){
-        return this.x <= other.getX() && this.y <= other.getY();
+        return this.x >= other.getX() && this.y >= other.getY();
     }
 
     Vector2d upperRight(Vector2d other) {
