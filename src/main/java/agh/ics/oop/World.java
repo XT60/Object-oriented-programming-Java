@@ -4,6 +4,14 @@ import static java.lang.System.out;
 
 public class World {
     public static void main(String[] args) {
+        Animal myAnimal = new Animal();
+        out.println(myAnimal.toString());
+        MoveDirection[] myArgs = {MoveDirection.RIGHT, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD};
+        for( int i = 0; i < 4; i++){
+            myAnimal.move(myArgs[i]);
+        }
+        out.println(myAnimal.toString());
+
 //        out.println("system wystartował");
 //        Direction[] arr = convertToDirection(args);
 //        run(arr);
@@ -21,6 +29,7 @@ public class World {
 //        System.out.println(MapDirection.WEST.toUnitVector());
 
     }
+
     static void run(Direction[] arr){
         int len = arr.length;
         out.println("Start");
