@@ -4,30 +4,14 @@ import static java.lang.System.out;
 
 public class World {
     public static void main(String[] args) {
+        OptionsParser parser = new OptionsParser();
+        MoveDirection[] myArgs = parser.parse(args);
         Animal myAnimal = new Animal();
         out.println(myAnimal.toString());
-        MoveDirection[] myArgs = {MoveDirection.RIGHT, MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD};
-        for( int i = 0; i < 4; i++){
+        for( int i = 0; i < myArgs.length; i++){
             myAnimal.move(myArgs[i]);
         }
         out.println(myAnimal.toString());
-
-//        out.println("system wystartował");
-//        Direction[] arr = convertToDirection(args);
-//        run(arr);
-//        out.println("system zakończył działanie");
-
-//        Vector2d position1 = new Vector2d(1,2);
-//        System.out.println(position1);
-//        Vector2d position2 = new Vector2d(-2,1);
-//        System.out.println(position2);
-//        System.out.println(position1.add(position2));
-
-//        System.out.println(MapDirection.WEST);
-//        System.out.println(MapDirection.WEST.next());
-//        System.out.println(MapDirection.WEST.previous());
-//        System.out.println(MapDirection.WEST.toUnitVector());
-
     }
 
     static void run(Direction[] arr){
