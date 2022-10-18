@@ -3,10 +3,11 @@ import static java.lang.System.out;
 
 
 public class World {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FullWorldException{
         OptionsParser parser = new OptionsParser();
         MoveDirection[] myArgs = parser.parse(args);
-        Animal myAnimal = new Animal();
+        Animal myAnimal;
+        myAnimal = new Animal();
         out.println(myAnimal.toString());
         for( int i = 0; i < myArgs.length; i++){
             myAnimal.move(myArgs[i]);

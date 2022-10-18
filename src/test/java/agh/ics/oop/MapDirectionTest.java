@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.HashMap;
 
-public class MapDirectionTest {
+public class MapDirectionTest{
     @Test
     public void nextTest(){
         HashMap<MapDirection, MapDirection> goodResults = new HashMap<MapDirection, MapDirection>(4);
