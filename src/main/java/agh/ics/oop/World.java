@@ -3,7 +3,7 @@ import static java.lang.System.out;
 
 
 public class World {
-    public static void main(String[] args) throws FullWorldException{
+    public static void main(String[] args){
         OptionsParser parser = new OptionsParser();
         MoveDirection[] myArgs = parser.parse(args);
         Animal myAnimal;

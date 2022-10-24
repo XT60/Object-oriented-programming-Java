@@ -33,7 +33,7 @@ public class AnimalParseTest {
     }
 
     @Test
-    public void movementTest() throws FullWorldException{
+    public void movementTest(){
         String[][] inputs = {
                 {"left", "left", "backward", "left", "left", "right", "forward"},
                 {"forward", "backward", "forward", "left", "forward", "right"},
@@ -59,77 +59,68 @@ public class AnimalParseTest {
             Animal output = handleInput(inputs[i]);
             assertTrue(output.arePositionsEquals(positions[i]));
             assertTrue(output.areDirectionsEquals(directions[i]));
-            output.handleDelete();
         }
     }
 
     // ----------------------- Directions
     @Test
-    public void eastDirectionTest() throws FullWorldException{
+    public void eastDirectionTest(){
         String[] input = {"right"};
         Animal output = handleInput(input);
         assertTrue(output.areDirectionsEquals(MapDirection.EAST));
-        output.handleDelete();
     }
 
     @Test
-    public void westDirectionTest() throws FullWorldException{
+    public void westDirectionTest(){
         String[] input = {"left"};
         Animal output = handleInput(input);
         assertTrue(output.areDirectionsEquals(MapDirection.WEST));
-        output.handleDelete();
     }
 
     @Test
-    public void northDirectionTest() throws FullWorldException{
+    public void northDirectionTest(){
         String[] input = {"left", "right"};
         Animal output = handleInput(input);
         assertTrue(output.areDirectionsEquals(MapDirection.NORTH));
-        output.handleDelete();
     }
 
     @Test
-    public void southDirectionTest() throws FullWorldException{
+    public void southDirectionTest(){
         String[] input = {"left", "left"};
         Animal output = handleInput(input);
         assertTrue(output.areDirectionsEquals(MapDirection.SOUTH));
-        output.handleDelete();
     }
 
     // ----------------------- Borders
     @Test
-    public void eastBorderTest() throws FullWorldException{
+    public void eastBorderTest(){
         String[] input = {"right", "forward", "forward", "forward"};
         Animal output = handleInput(input);
         assertTrue(output.arePositionsEquals(new Vector2d(4, 2)));
-        output.handleDelete();
     }
 
     @Test
-    public void westBorderTest() throws FullWorldException{
+    public void westBorderTest(){
         String[] input = {"left", "forward", "forward", "forward"};
         Animal output = handleInput(input);
         assertTrue(output.arePositionsEquals(new Vector2d(0, 2)));
-        output.handleDelete();
     }
 
     @Test
-    public void northBorderTest() throws FullWorldException{
+    public void northBorderTest(){
         String[] input = {"forward", "forward", "forward"};
         Animal output = handleInput(input);
         assertTrue(output.arePositionsEquals(new Vector2d(2, 4)));
-        output.handleDelete();
     }
 
     @Test
-    public void southBorderTest() throws FullWorldException{
+    public void southBorderTest(){
         String[] input = {"right", "right", "forward", "forward", "forward"};
         Animal output = handleInput(input);
-
         assertTrue(output.arePositionsEquals(new Vector2d(2, 0)));
     }
 
-    Animal handleInput(String [] input) throws FullWorldException{
+    Animal handleInput(String [] input){
         Animal myAnimal;
         myAnimal = new Animal();
         OptionsParser myParser = new OptionsParser();
@@ -137,7 +128,6 @@ public class AnimalParseTest {
         for( int i = 0; i < myInput.length; i++){
             myAnimal.move(myInput[i]);
         }
-
         return myAnimal;
     }
 }
