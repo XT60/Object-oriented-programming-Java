@@ -3,10 +3,19 @@ package agh.ics.oop;
 public class Animal{
     private MapDirection direction;
     private Vector2d position;
+    private IWorldMap map;
 
-    public Animal (){
+    public Animal(){
         this.direction = MapDirection.NORTH;
         this.position = new Vector2d(2,2);
+    }
+
+    public Animal (IWorldMap map){
+        this.map = map;
+    }
+
+    public Animal(IWorldMap map, Vector2d initialPosition){
+
     }
 
     public void move(MoveDirection direction){
@@ -35,7 +44,7 @@ public class Animal{
     private boolean validatePos(Vector2d position){
         int x = position.getX();
         int y = position.getY();
-        return 0 <= Math.min(x, y) && Math.max(x, y) < 5;
+        return 0 <= Math.min(x, y) && Math.max(x, y) < 5 && this.map.canMoveTo(new Vector2d(x,y));
     }
 
     @Override
