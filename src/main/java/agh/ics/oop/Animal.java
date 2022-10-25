@@ -12,10 +12,11 @@ public class Animal{
 //    }
 
     public Animal (IWorldMap map){
+        Vector2d pos = new Vector2d(2,2);
         this.map = map;
         if(map.place(this)){
             this.direction = MapDirection.NORTH;
-            this.position = new Vector2d(2,2);
+            this.position = pos;
         }
 }
 
