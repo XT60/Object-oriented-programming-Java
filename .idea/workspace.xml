@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="lab01 ignoring unspecified arguments">
+    <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="/">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
     </list>
@@ -216,6 +216,8 @@
       <workItem from="1666112981928" duration="2161000" />
       <workItem from="1666115780607" duration="6740000" />
       <workItem from="1666625112566" duration="373000" />
+      <workItem from="1666724059517" duration="3000" />
+      <workItem from="1666724086967" duration="1114000" />
     </task>
     <task id="LOCAL-00001" summary="lab01">
       <created>1665213426438</created>

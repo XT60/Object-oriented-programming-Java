@@ -5,17 +5,29 @@ public class Animal{
     private Vector2d position;
     private IWorldMap map;
 
-    public Animal(){
-        this.direction = MapDirection.NORTH;
-        this.position = new Vector2d(2,2);
-    }
+//    I think this constructructor is no logner usable as ther is no way to determine if animal can be on position (2,2)
+//    public Animal(){
+//        this.direction = MapDirection.NORTH;
+//        this.position = new Vector2d(2,2);
+//    }
 
     public Animal (IWorldMap map){
         this.map = map;
-    }
+        if(map.place(this)){
+            this.direction = MapDirection.NORTH;
+            this.position = new Vector2d(2,2);
+        }
+}
 
     public Animal(IWorldMap map, Vector2d initialPosition){
-
+        this.map = map;
+        if(map.place(this)){
+            this.direction = MapDirection.NORTH;
+            this.position = initialPosition;
+        }
+        else{
+//            loop other vertices and if none of them is not occupied throw exception???
+        }
     }
 
     public void move(MoveDirection direction){
@@ -48,8 +60,21 @@ public class Animal{
     }
 
     @Override
+//    public String toString() {
+//        return this.position.toString() + ", " + this.direction.toString();
+//    }
     public String toString() {
-        return this.position.toString() + ", " + this.direction.toString();
+        switch (this.direction){
+            case NORTH:
+                return "N";
+            case SOUTH:
+                return "S";
+            case EAST:
+                return "E";
+            case WEST:
+                return "W";
+        };
+        return "unexpected enum value";
     }
 
     public boolean isAt(Vector2d position){
