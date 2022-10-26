@@ -7,6 +7,7 @@ public class RectangularMap implements IWorldMap {
     private int height;
     private int width;
     private ArrayList<Animal> animalMap;
+    private MapVisualizer visualizer;
 
     public RectangularMap(int width, int height){
         this.width = width;
@@ -14,6 +15,7 @@ public class RectangularMap implements IWorldMap {
         for(int i = 0; i < height * width; i++){
             animalMap.set(i, null);
         };
+        this.visualizer = new MapVisualizer(this);
     }
 
     public int mapIndex(int y, int x){
@@ -24,34 +26,46 @@ public class RectangularMap implements IWorldMap {
         return position.getY() * width + position.getX();
     }
 
+    private boolean  isPositionValid(Vector2d position){
+        int x = position.getX();
+        int y = position.getY();
+        return 0 <= Math.min(x, y) && x < this.width && y < this.height;
+    }
     @Override
     public boolean canMoveTo(Vector2d position) {
-//        what if position beyond map borders is given
-        if (this.objectAt(position) == null){
-            return true;
-        }
-        return false;
+        return this.isPositionValid(position) && this.objectAt(position) == null;
     }
 
     @Override
     public boolean place(Animal animal) {
-
+        Vector2d currPosition = animal.getPosition();
+        if (canMoveTo(currPosition)){
+            this.animalMap.get(mapIndex(currPosition));
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean isOccupied(Vector2d position) {
-        //        what if position beyond map borders is given
-        if (this.objectAt(position) == null) {
-            return true;
+        if (this.isPositionValid(position)){
+            return false;
         }
-        return false;
+        return this.objectAt(position) == null;
     }
 
     @Override
     public Object objectAt(Vector2d position) {
-        return animalMap.get(mapIndex(position));
+        if (isOccupied(position)){
+            return animalMap.get(mapIndex(position));
+        }
+        return null;
     }
 
-
+    @Override
+    public String toString() {
+        Vector2d lowerLeft = new Vector2d(0,0);
+        Vector2d upperRight = new Vector2d(width, height);
+        return visualizer.draw(lowerLeft, upperRight);
+    }
 }

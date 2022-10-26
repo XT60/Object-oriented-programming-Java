@@ -90,4 +90,8 @@ public class Animal{
         return this.position.equals(position);
     }
 
+    public Vector2d getPosition(){
+        return new Vector2d(this.position);
+    }
+
 }
