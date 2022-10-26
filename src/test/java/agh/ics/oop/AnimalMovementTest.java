@@ -23,7 +23,8 @@ public class AnimalMovementTest {
 
         ArrayList<Animal> animals = map.getAnimalList();
         Vector2d[] endPositions = {new Vector2d(2,0), new Vector2d(3,0)};
-        checkResults(animals, endPositions);
+        MapDirection[] endDirections = {MapDirection.EAST, MapDirection.WEST};
+        checkResults(animals, endPositions, endDirections);
     }
 
     @Test
@@ -41,7 +42,8 @@ public class AnimalMovementTest {
 
         ArrayList<Animal> animals = map.getAnimalList();
         Vector2d[] endPositions = { new Vector2d(0,2), new Vector2d(9,3), new Vector2d(5,0), new Vector2d(5,4) };
-        checkResults(animals, endPositions);
+        MapDirection[] endDirections = {MapDirection.WEST, MapDirection.EAST, MapDirection.SOUTH, MapDirection.NORTH};
+        checkResults(animals, endPositions, endDirections);
     }
 
     @Test
@@ -60,7 +62,8 @@ public class AnimalMovementTest {
 
         ArrayList<Animal> animals = map.getAnimalList();
         Vector2d[] endPositions = { new Vector2d(0,0), new Vector2d(9,0), new Vector2d(9,4), new Vector2d(0,4) };
-        checkResults(animals, endPositions);
+        MapDirection[] endDirections = {MapDirection.SOUTH, MapDirection.SOUTH, MapDirection.EAST, MapDirection.WEST};
+        checkResults(animals, endPositions, endDirections);
     }
 
     @Test
@@ -74,14 +77,17 @@ public class AnimalMovementTest {
 
         ArrayList<Animal> animals = map.getAnimalList();
         Vector2d[] endPositions = { new Vector2d(2,0), new Vector2d(3,4) };
-        checkResults(animals, endPositions);
+        MapDirection[] endDirections = {MapDirection.SOUTH, MapDirection.NORTH};
+        checkResults(animals, endPositions, endDirections);
     }
 
-    public void checkResults(ArrayList<Animal> animals,  Vector2d[] positions){
+    public void checkResults(ArrayList<Animal> animals,  Vector2d[] positions, MapDirection[] directions){
         for(int i = 0; i < animals.size(); i++){
             Animal animal = animals.get(i);
             Vector2d pos = positions[i];
+            MapDirection dir = directions[i];
             assertTrue(animal.arePositionsEquals(pos));
+            assertTrue(animal.areDirectionsEquals(dir));
         }
     }
 }

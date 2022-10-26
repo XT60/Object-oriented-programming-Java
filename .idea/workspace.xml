@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="/">
-      <change afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalMovementTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalParseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalParseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalMovementTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalMovementTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.AnimalMovementTest.mapCornerTest">
+  <component name="RunManager" selected="Gradle.AnimalMovementTest">
     <configuration name="AnimalMovementTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -196,11 +195,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AnimalMovementTest.mapCornerTest" />
         <item itemvalue="Gradle.AnimalMovementTest" />
+        <item itemvalue="Gradle.AnimalMovementTest.mapCornerTest" />
+        <item itemvalue="Gradle.AnimalMovementTest.collisionTest" />
         <item itemvalue="Gradle.AnimalMovementTest.mapBorderTest" />
         <item itemvalue="Gradle.AnimalMovementTest.movementTest" />
-        <item itemvalue="Gradle.AnimalMovementTest.collisionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -230,7 +229,7 @@
       <workItem from="1666724059517" duration="3000" />
       <workItem from="1666724086967" duration="6305000" />
       <workItem from="1666768039215" duration="13396000" />
-      <workItem from="1666785155319" duration="3205000" />
+      <workItem from="1666785155319" duration="4519000" />
     </task>
     <task id="LOCAL-00001" summary="lab01">
       <created>1665213426438</created>
