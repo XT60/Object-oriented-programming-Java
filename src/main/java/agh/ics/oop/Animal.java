@@ -5,29 +5,27 @@ public class Animal{
     private Vector2d position;
     private IWorldMap map;
 
-//    I think this constructructor is no logner usable as ther is no way to determine if animal can be on position (2,2)
-//    public Animal(){
-//        this.direction = MapDirection.NORTH;
-//        this.position = new Vector2d(2,2);
-//    }
+    public Animal(){
+        this.direction = MapDirection.NORTH;
+        this.position = new Vector2d(2,2);
+    }
 
     public Animal (IWorldMap map){
         Vector2d pos = new Vector2d(2,2);
         this.map = map;
-        if(map.place(this)){
-            this.direction = MapDirection.NORTH;
-            this.position = pos;
-        }
+        this.direction = MapDirection.NORTH;
+        this.position = pos;
+//        if(!map.place(this)){
+//            // exception ???
+//        }
 }
 
     public Animal(IWorldMap map, Vector2d initialPosition){
         this.map = map;
-        if(map.place(this)){
-            this.direction = MapDirection.NORTH;
-            this.position = initialPosition;
-        }
-        else{
-//            loop other vertices and if none of them is not occupied throw exception???
+        this.direction = MapDirection.NORTH;
+        this.position = initialPosition;
+        if(! map.place(this)){
+            // exception ???
         }
     }
 

@@ -1,5 +1,6 @@
 package agh.ics.oop;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class SimulationEngine implements IEngine{
@@ -15,17 +16,17 @@ public class SimulationEngine implements IEngine{
         for (int i = 0; i < initialPositions.length; i ++){
             Vector2d initialPos = initialPositions[i];
             Animal animal = new Animal(map, initialPos);
-            if (!map.place(animal)){
-                //throw exception ??
-            };
         }
     }
 
     @Override
     public void run() {
         int i = 0;
-        LinkedList<Animal> animalList = map.getAnimalList();
-        while(true){
+        if (i >= moves.length){
+            return;
+        }
+        ArrayList<Animal> animalList = map.getAnimalList();
+        while(animalList.size() > 0){
             for(int a = 0; a < animalList.size(); a++){
                 Animal animal = animalList.get(a);
                 animal.move(moves[i]);

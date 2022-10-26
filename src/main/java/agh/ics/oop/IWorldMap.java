@@ -1,5 +1,6 @@
 package agh.ics.oop;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -13,7 +14,7 @@ public interface IWorldMap {
     /**
      * @return LinkedList of animals that currently wander map
      */
-    LinkedList<Animal> getAnimalList();
+    ArrayList<Animal> getAnimalList();
 
     /**
      * Indicate if any object can move to the given position.

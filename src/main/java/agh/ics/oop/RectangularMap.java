@@ -6,17 +6,15 @@ import java.util.LinkedList;
 public class RectangularMap implements IWorldMap {
     private int height;
     private int width;
-    private ArrayList<Animal> animalMap;
-    public LinkedList<Animal> animalList;
+    public ArrayList<Animal> animalList;
     private MapVisualizer visualizer;
 
     public RectangularMap(int width, int height){
         this.width = width;
         this.height = height;
-        for(int i = 0; i < height * width; i++){
-            animalMap.set(i, null);
-        };
+        this.animalList = new ArrayList<>();
         this.visualizer = new MapVisualizer(this);
+
     }
 
     public int mapIndex(int y, int x){
@@ -34,20 +32,19 @@ public class RectangularMap implements IWorldMap {
     }
 
     @Override
-    public LinkedList<Animal> getAnimalList() {
+    public ArrayList<Animal> getAnimalList() {
         return this.animalList;
     }
 
     @Override
     public boolean canMoveTo(Vector2d position) {
-        return this.isPositionValid(position) && this.objectAt(position) == null;
+        return this.isPositionValid(position) && !this.isOccupied(position);
     }
 
     @Override
     public boolean place(Animal animal) {
         Vector2d currPosition = animal.getPosition();
         if (canMoveTo(currPosition)){
-            this.animalMap.get(mapIndex(currPosition));
             this.animalList.add(animal);
             return true;
         }
@@ -56,16 +53,28 @@ public class RectangularMap implements IWorldMap {
 
     @Override
     public boolean isOccupied(Vector2d position) {
-        if (this.isPositionValid(position)){
+        if (!this.isPositionValid(position)){
             return false;
         }
-        return this.objectAt(position) == null;
+        for(int i = 0; i < animalList.size(); i++){
+            Animal animal = animalList.get(i);
+            if (animal.arePositionsEquals(position)){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public Object objectAt(Vector2d position) {
-        if (isOccupied(position)){
-            return animalMap.get(mapIndex(position));
+        if (isPositionValid(position)){
+            for(int i = 0; i < animalList.size(); i++){
+                Animal animal = animalList.get(i);
+                if (animal.arePositionsEquals(position)){
+                    return animal;
+                }
+            }
+            return null;
         }
         return null;
     }
@@ -73,7 +82,7 @@ public class RectangularMap implements IWorldMap {
     @Override
     public String toString() {
         Vector2d lowerLeft = new Vector2d(0,0);
-        Vector2d upperRight = new Vector2d(width, height);
+        Vector2d upperRight = new Vector2d(width-1, height-1);
         return visualizer.draw(lowerLeft, upperRight);
     }
 }
