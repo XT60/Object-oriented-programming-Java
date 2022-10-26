@@ -5,12 +5,12 @@ import java.util.LinkedList;
 
 public class SimulationEngine implements IEngine{
     private MoveDirection[] moves;
-    private IWorldMap map;
+    private RectangularMap map;
     private Vector2d[] initialPositions;
 
     public SimulationEngine(MoveDirection[] moves, IWorldMap map, Vector2d[] initialPositions){
         this.moves = moves;
-        this.map = map;
+        this.map = (RectangularMap) map;
         this.initialPositions = initialPositions;
 
         for (int i = 0; i < initialPositions.length; i ++){

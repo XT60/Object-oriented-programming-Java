@@ -12,11 +12,6 @@ import java.util.LinkedList;
  */
 public interface IWorldMap {
     /**
-     * @return LinkedList of animals that currently wander map
-     */
-    ArrayList<Animal> getAnimalList();
-
-    /**
      * Indicate if any object can move to the given position.
      *
      * @param position

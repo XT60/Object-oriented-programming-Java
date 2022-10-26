@@ -31,7 +31,6 @@ public class RectangularMap implements IWorldMap {
         return 0 <= Math.min(x, y) && x < this.width && y < this.height;
     }
 
-    @Override
     public ArrayList<Animal> getAnimalList() {
         return this.animalList;
     }
