@@ -15,9 +15,9 @@ public class Animal{
         this.map = map;
         this.direction = MapDirection.NORTH;
         this.position = pos;
-//        if(!map.place(this)){
-//            // exception ???
-//        }
+        if(!map.place(this)){
+             System.out.println("ERROR: couldn't add animal at position " + position.toString());
+        }
 }
 
     public Animal(IWorldMap map, Vector2d initialPosition){
@@ -25,7 +25,7 @@ public class Animal{
         this.direction = MapDirection.NORTH;
         this.position = initialPosition;
         if(! map.place(this)){
-            // exception ???
+            System.out.println("ERROR: couldn't add animal at position " + position.toString());
         }
     }
 
