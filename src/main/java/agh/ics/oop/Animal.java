@@ -41,23 +41,17 @@ public class Animal{
                 break;
             case FORWARD:
                 Vector2d newPos = this.position.add(this.direction.toUnitVector());
-                if (validatePos(newPos)){
+                if (this.map.canMoveTo(newPos)){
                     this.position = newPos;
                 }
                 break;
             case BACKWARD:
                 Vector2d nPos = this.position.subtract(this.direction.toUnitVector());
-                if (validatePos(nPos)){
+                if (this.map.canMoveTo(nPos)){
                     this.position = nPos;
                 }
                 break;
         }
-    }
-
-    private boolean validatePos(Vector2d position){
-        int x = position.getX();
-        int y = position.getY();
-        return 0 <= Math.min(x, y) && Math.max(x, y) < 5 && this.map.canMoveTo(new Vector2d(x,y));
     }
 
     @Override

@@ -7,6 +7,7 @@ public class RectangularMap implements IWorldMap {
     private int height;
     private int width;
     private ArrayList<Animal> animalMap;
+    public LinkedList<Animal> animalList;
     private MapVisualizer visualizer;
 
     public RectangularMap(int width, int height){
@@ -31,6 +32,12 @@ public class RectangularMap implements IWorldMap {
         int y = position.getY();
         return 0 <= Math.min(x, y) && x < this.width && y < this.height;
     }
+
+    @Override
+    public LinkedList<Animal> getAnimalList() {
+        return this.animalList;
+    }
+
     @Override
     public boolean canMoveTo(Vector2d position) {
         return this.isPositionValid(position) && this.objectAt(position) == null;
@@ -41,6 +48,7 @@ public class RectangularMap implements IWorldMap {
         Vector2d currPosition = animal.getPosition();
         if (canMoveTo(currPosition)){
             this.animalMap.get(mapIndex(currPosition));
+            this.animalList.add(animal);
             return true;
         }
         return false;
