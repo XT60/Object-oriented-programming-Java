@@ -7,13 +7,13 @@ import java.util.LinkedList;
 public class RectangularMap extends AbstractWorldMap {
     private int height;
     private int width;
-    public ArrayList<Animal> animalList;
+    public ArrayList<IMapElement> elementList;
     private MapVisualizer visualizer;
 
     public RectangularMap(int width, int height){
         this.width = width;
         this.height = height;
-        this.animalList = new ArrayList<>();
+        this.elementList = new ArrayList<>();
         this.visualizer = new MapVisualizer(this);
     }
 
@@ -29,10 +29,6 @@ public class RectangularMap extends AbstractWorldMap {
         int x = position.getX();
         int y = position.getY();
         return 0 <= Math.min(x, y) && x < this.width && y < this.height;
-    }
-
-    public ArrayList<Animal> getAnimalList() {
-        return this.animalList;
     }
 
     @Override

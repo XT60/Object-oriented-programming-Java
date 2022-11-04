@@ -5,14 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 abstract class AbstractWorldMap implements IWorldMap{
-    List<Animal> animalList = new LinkedList<Animal>();
+    List<IMapElement> elementList = new LinkedList<IMapElement>();
     MapVisualizer visualizer;
 
     @Override
     public boolean place(Animal animal) {
         Vector2d currPosition = animal.getPosition();
         if (canMoveTo(currPosition)){
-            animalList.add(animal);
+            elementList.add(animal);
             return true;
         }
         return false;
@@ -27,10 +27,10 @@ abstract class AbstractWorldMap implements IWorldMap{
 
     @Override
     public Object objectAt(Vector2d position) {
-        for(int i = 0; i < animalList.size(); i++){
-            Animal animal = animalList.get(i);
-            if (animal.arePositionsEquals(position)){
-                return animal;
+        for(int i = 0; i < elementList.size(); i++){
+            IMapElement element = elementList.get(i);
+            if (element.getPosition().equals(position)){
+                return element;
             }
         }
         return null;
