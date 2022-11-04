@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="/">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +73,20 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.AnimalMovementTest">
+  <component name="RunManager" selected="Application.World">
+    <configuration name="World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.World" />
+      <module name="oolab.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="agh.ics.oop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AnimalMovementTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -162,43 +179,20 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="AnimalMovementTest.movementTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;agh.ics.oop.AnimalMovementTest.movementTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <list>
+      <item itemvalue="Application.World" />
       <item itemvalue="Gradle.AnimalMovementTest" />
       <item itemvalue="Gradle.AnimalMovementTest.collisionTest" />
       <item itemvalue="Gradle.AnimalMovementTest.mapBorderTest" />
       <item itemvalue="Gradle.AnimalMovementTest.mapCornerTest" />
-      <item itemvalue="Gradle.AnimalMovementTest.movementTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.World" />
         <item itemvalue="Gradle.AnimalMovementTest" />
         <item itemvalue="Gradle.AnimalMovementTest.mapCornerTest" />
         <item itemvalue="Gradle.AnimalMovementTest.collisionTest" />
         <item itemvalue="Gradle.AnimalMovementTest.mapBorderTest" />
-        <item itemvalue="Gradle.AnimalMovementTest.movementTest" />
       </list>
     </recent_temporary>
   </component>
@@ -229,6 +223,9 @@
       <workItem from="1666724086967" duration="6305000" />
       <workItem from="1666768039215" duration="13396000" />
       <workItem from="1666785155319" duration="5376000" />
+      <workItem from="1667055653116" duration="143000" />
+      <workItem from="1667161291586" duration="640000" />
+      <workItem from="1667550585730" duration="5510000" />
     </task>
     <task id="LOCAL-00001" summary="lab01">
       <created>1665213426438</created>
@@ -275,9 +272,9 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/agh/ics/oop/RectangularMap.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="69" />
+          <url>file://$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
