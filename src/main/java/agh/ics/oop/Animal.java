@@ -10,6 +10,11 @@ public class Animal{
         this.position = new Vector2d(2,2);
     }
 
+    public Animal(Vector2d position){
+        this.direction = MapDirection.NORTH;
+        this.position = new Vector2d(position);
+    }
+
     public Animal (IWorldMap map){
         Vector2d pos = new Vector2d(2,2);
         this.map = map;
