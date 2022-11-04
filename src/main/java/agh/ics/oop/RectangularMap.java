@@ -3,7 +3,8 @@ package agh.ics.oop;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class RectangularMap implements IWorldMap {
+
+public class RectangularMap extends AbstractWorldMap {
     private int height;
     private int width;
     public ArrayList<Animal> animalList;
@@ -14,7 +15,6 @@ public class RectangularMap implements IWorldMap {
         this.height = height;
         this.animalList = new ArrayList<>();
         this.visualizer = new MapVisualizer(this);
-
     }
 
     public int mapIndex(int y, int x){
@@ -25,7 +25,7 @@ public class RectangularMap implements IWorldMap {
         return position.getY() * width + position.getX();
     }
 
-    private boolean  isPositionValid(Vector2d position){
+    private boolean isPositionValid(Vector2d position){
         int x = position.getX();
         int y = position.getY();
         return 0 <= Math.min(x, y) && x < this.width && y < this.height;
@@ -41,47 +41,20 @@ public class RectangularMap implements IWorldMap {
     }
 
     @Override
-    public boolean place(Animal animal) {
-        Vector2d currPosition = animal.getPosition();
-        if (canMoveTo(currPosition)){
-            this.animalList.add(animal);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     public boolean isOccupied(Vector2d position) {
         if (!this.isPositionValid(position)){
             return false;
         }
-        for(int i = 0; i < animalList.size(); i++){
-            Animal animal = animalList.get(i);
-            if (animal.arePositionsEquals(position)){
-                return true;
-            }
-        }
-        return false;
+        return super.isOccupied(position);
     }
 
     @Override
-    public Object objectAt(Vector2d position) {
-        if (isPositionValid(position)){
-            for(int i = 0; i < animalList.size(); i++){
-                Animal animal = animalList.get(i);
-                if (animal.arePositionsEquals(position)){
-                    return animal;
-                }
-            }
-            return null;
-        }
-        return null;
+    protected Vector2d upperRightMapCorner() {
+        return new Vector2d(width-1, height-1);
     }
 
     @Override
-    public String toString() {
-        Vector2d lowerLeft = new Vector2d(0,0);
-        Vector2d upperRight = new Vector2d(width-1, height-1);
-        return visualizer.draw(lowerLeft, upperRight);
+    protected Vector2d lowerLeftMapCorner() {
+        return new Vector2d(0,0);
     }
 }

@@ -2,7 +2,7 @@ package agh.ics.oop;
 
 import java.util.*;
 
-public class GrassField implements IWorldMap{
+public class GrassField extends AbstractWorldMap{
     private List<Grass> grassList = new LinkedList<Grass>();
     private List<Animal> animalList = new LinkedList<Animal>();
     private MapVisualizer visualizer = new MapVisualizer(this);
@@ -37,30 +37,10 @@ public class GrassField implements IWorldMap{
     }
 
     @Override
-    public boolean place(Animal animal) {
-        Vector2d currPosition = animal.getPosition();
-        if (canMoveTo(currPosition)){
-            animalList.add(animal);
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public boolean isOccupied(Vector2d position) {
-        if (objectAt(position) == null){
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public Object objectAt(Vector2d position) {
-        for(int i = 0; i < animalList.size(); i++){
-            Animal animal = animalList.get(i);
-            if (animal.arePositionsEquals(position)){
-                return animal;
-            }
+        Object found = super.objectAt(position);
+        if (found != null){
+            return found;
         }
         for(int i = 0; i < grassList.size(); i++){
             Grass grass = grassList.get(i);
@@ -72,26 +52,38 @@ public class GrassField implements IWorldMap{
     }
 
     @Override
-    public String toString() {
-        Vector2d lowerLeft = new Vector2d(0,0);
+    protected Vector2d upperRightMapCorner() {
         Vector2d upperRight = new Vector2d(0,0);
         for(int i = 0; i < animalList.size(); i ++){
             Animal animal = animalList.get(i);
             Vector2d pos = animal.getPosition();
-            lowerLeft.x = Math.min(pos.x, lowerLeft.x);
-            lowerLeft.y = Math.min(pos.y, lowerLeft.y);
             upperRight.x = Math.max(pos.x, upperRight.x);
             upperRight.y = Math.max(pos.y, upperRight.y);
         }
         for(int i = 0; i < grassList.size(); i ++){
             Grass grass = grassList.get(i);
             Vector2d pos = grass.getPosition();
-            lowerLeft.x = Math.min(pos.x, lowerLeft.x);
-            lowerLeft.y = Math.min(pos.y, lowerLeft.y);
             upperRight.x = Math.max(pos.x, upperRight.x);
             upperRight.y = Math.max(pos.y, upperRight.y);
         }
-        return visualizer.draw(lowerLeft, upperRight);
+        return upperRight;
     }
 
+    @Override
+    protected Vector2d lowerLeftMapCorner() {
+        Vector2d lowerLeft = new Vector2d(0,0);
+        for(int i = 0; i < animalList.size(); i ++){
+            Animal animal = animalList.get(i);
+            Vector2d pos = animal.getPosition();
+            lowerLeft.x = Math.min(pos.x, lowerLeft.x);
+            lowerLeft.y = Math.min(pos.y, lowerLeft.y);
+        }
+        for(int i = 0; i < grassList.size(); i ++){
+            Grass grass = grassList.get(i);
+            Vector2d pos = grass.getPosition();
+            lowerLeft.x = Math.min(pos.x, lowerLeft.x);
+            lowerLeft.y = Math.min(pos.y, lowerLeft.y);
+        }
+        return lowerLeft;
+    }
 }
