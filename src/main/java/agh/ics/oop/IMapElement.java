@@ -12,5 +12,6 @@ public interface IMapElement {
      */
     public Vector2d getPosition();
 
+    public void setPosition(Vector2d position);
 
 }

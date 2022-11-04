@@ -36,11 +36,13 @@ public class SimulationEngine implements IEngine{
             for(int a = 0; a < this.animalList.size(); a++){
                 Animal animal = this.animalList.get(a);
                 animal.move(moves[i]);
+                map.handleAnimalMovement(animal);
                 i++;
                 if (i >= moves.length){
                     return;
                 }
             }
+//            System.out.println(map.toString());
         }
     }
 }

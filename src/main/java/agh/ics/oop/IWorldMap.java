@@ -48,4 +48,13 @@ public interface IWorldMap {
      * @return Object or null if the position is not occupied.
      */
     Object objectAt(Vector2d position);
+
+    /**
+     * Handle actions triggered by animal movement.
+     *
+     * @param animal
+     *            The animal that was moved.
+     */
+    void handleAnimalMovement(Animal animal);
+
 }

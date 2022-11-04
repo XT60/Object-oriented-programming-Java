@@ -91,4 +91,9 @@ public class Animal implements IMapElement{
         return new Vector2d(this.position);
     }
 
+    @Override
+    public void setPosition(Vector2d position) {
+        this.position = new Vector2d(position);
+    }
+
 }
