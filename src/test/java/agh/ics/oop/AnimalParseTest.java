@@ -1,3 +1,6 @@
+// Those tests use old version of Animal constructor that does not assigns value to map attribute
+// which later results in exception thrown in move() method
+
 package agh.ics.oop;
 import org.junit.jupiter.api.Test;
 

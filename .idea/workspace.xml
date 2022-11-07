@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="/">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IPositionChangeObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AbstractWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AbstractWorldMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalParseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalParseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,21 +73,8 @@
     "settings.editor.selected.configurable": "inlay.hints"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.World">
-    <configuration name="World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.World" />
-      <module name="oolab.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="agh.ics.oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AnimalMovementTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Vector2dTest">
+    <configuration name="AnimalParseTest.movementTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -100,7 +87,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.AnimalMovementTest&quot;" />
+            <option value="&quot;agh.ics.oop.AnimalParseTest.movementTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -133,6 +120,29 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="MapDirectionTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.oop.MapDirectionTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="RectangularIWorldMapTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -156,7 +166,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RectangularIWorldMapTest.canMoveToTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Vector2dTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -169,7 +179,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.RectangularIWorldMapTest.canMoveToTest&quot;" />
+            <option value="&quot;agh.ics.oop.Vector2dTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -180,19 +190,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.World" />
-      <item itemvalue="Gradle.AnimalMovementTest" />
+      <item itemvalue="Gradle.AnimalParseTest.movementTest" />
+      <item itemvalue="Gradle.MapDirectionTest" />
+      <item itemvalue="Gradle.Vector2dTest" />
       <item itemvalue="Gradle.GrassFieldIWorldMapTest" />
       <item itemvalue="Gradle.RectangularIWorldMapTest" />
-      <item itemvalue="Gradle.RectangularIWorldMapTest.canMoveToTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.World" />
-        <item itemvalue="Gradle.GrassFieldIWorldMapTest" />
+        <item itemvalue="Gradle.Vector2dTest" />
         <item itemvalue="Gradle.RectangularIWorldMapTest" />
-        <item itemvalue="Gradle.AnimalMovementTest" />
-        <item itemvalue="Gradle.RectangularIWorldMapTest.canMoveToTest" />
+        <item itemvalue="Gradle.MapDirectionTest" />
+        <item itemvalue="Gradle.GrassFieldIWorldMapTest" />
+        <item itemvalue="Gradle.AnimalParseTest.movementTest" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +237,7 @@
       <workItem from="1667161291586" duration="640000" />
       <workItem from="1667550585730" duration="8890000" />
       <workItem from="1667585558240" duration="5598000" />
-      <workItem from="1667836577178" duration="4143000" />
+      <workItem from="1667836577178" duration="7506000" />
     </task>
     <task id="LOCAL-00001" summary="lab01">
       <created>1665213426438</created>
@@ -272,6 +282,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/agh/ics/oop/MoveDirection.java</url>
           <line>8</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/agh/ics/oop/AnimalParseTest.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

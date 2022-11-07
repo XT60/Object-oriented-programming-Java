@@ -11,7 +11,7 @@ public class SimulationEngine implements IEngine{
 
     private List<Animal> animalList = new ArrayList<Animal>();
 
-    public SimulationEngine(MoveDirection[] moves, IWorldMap map, Vector2d[] initialPositions){
+    public SimulationEngine(MoveDirection[] moves, AbstractWorldMap map, Vector2d[] initialPositions){
         this.moves = moves;
         this.map = map;
         this.initialPositions = initialPositions;
@@ -19,6 +19,7 @@ public class SimulationEngine implements IEngine{
         for (int i = 0; i < initialPositions.length; i ++){
             Vector2d initialPos = initialPositions[i];
             Animal animal = new Animal(map, initialPos);
+            animal.addObserver(map);
             this.animalList.add(animal);
         }
     }
