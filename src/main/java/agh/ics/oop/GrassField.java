@@ -3,8 +3,6 @@ package agh.ics.oop;
 import java.util.*;
 
 public class GrassField extends AbstractWorldMap{
-    private List<IMapElement> elementList = new ArrayList<IMapElement>();
-    private MapVisualizer visualizer = new MapVisualizer(this);
 
     public GrassField(int grassCount){
         int range = (int) Math.floor(Math.sqrt(10 * grassCount));

@@ -11,6 +11,7 @@ public class RectangularMap extends AbstractWorldMap {
     private MapVisualizer visualizer;
 
     public RectangularMap(int width, int height){
+        super();
         this.width = width;
         this.height = height;
         this.elementList = new ArrayList<>();
