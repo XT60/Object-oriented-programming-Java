@@ -1,9 +1,14 @@
 package agh.ics.oop;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Animal implements IMapElement{
     private MapDirection direction;
     private Vector2d position;
     private IWorldMap map;
+
+    private List<IPositionChangeObserver> observers = new ArrayList<IPositionChangeObserver>();
 
     public Animal(){
         this.direction = MapDirection.NORTH;
@@ -24,6 +29,21 @@ public class Animal implements IMapElement{
              System.out.println("ERROR: couldn't add animal at position " + position.toString());
         }
 }
+    void addObserver(IPositionChangeObserver observer){
+        this.observers.add(observer);
+    }
+
+    void removeObserver(IPositionChangeObserver observer){
+        this.observers.remove(observer);
+    }
+
+    private void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        int len = observers.size();
+        for(int i = 0; i < len; i++){
+            IPositionChangeObserver observer = observers.get(i);
+            observer.positionChanged(oldPosition, newPosition);
+        }
+    }
 
     public Animal(IWorldMap map, Vector2d initialPosition){
         this.map = map;
@@ -45,12 +65,14 @@ public class Animal implements IMapElement{
             case FORWARD:
                 Vector2d newPos = this.position.add(this.direction.toUnitVector());
                 if (this.map.canMoveTo(newPos)){
+                    positionChanged(this.position, newPos);
                     this.position = newPos;
                 }
                 break;
             case BACKWARD:
                 Vector2d nPos = this.position.subtract(this.direction.toUnitVector());
                 if (this.map.canMoveTo(nPos)){
+                    positionChanged(this.position, nPos);
                     this.position = nPos;
                 }
                 break;

@@ -2,12 +2,19 @@ package agh.ics.oop;
 
 import java.util.*;
 
-abstract class AbstractWorldMap implements IWorldMap{
+abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
     Map<Vector2d, IMapElement> elementList = new HashMap<Vector2d, IMapElement>();
     MapVisualizer visualizer;
     public AbstractWorldMap(){
         visualizer = new MapVisualizer(this);
     }
+
+    public void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        IMapElement movedElement = elementList.get(oldPosition);
+        elementList.remove(oldPosition);
+        elementList.put(newPosition, movedElement);
+    }
+
     @Override
     public boolean place(Animal animal) {
         Vector2d currPosition = animal.getPosition();
