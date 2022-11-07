@@ -1,11 +1,9 @@
 package agh.ics.oop;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 abstract class AbstractWorldMap implements IWorldMap{
-    List<IMapElement> elementList = new ArrayList<IMapElement>();
+    Map<Vector2d, IMapElement> elementList = new HashMap<Vector2d, IMapElement>();
     MapVisualizer visualizer;
     public AbstractWorldMap(){
         visualizer = new MapVisualizer(this);
@@ -14,14 +12,14 @@ abstract class AbstractWorldMap implements IWorldMap{
     public boolean place(Animal animal) {
         Vector2d currPosition = animal.getPosition();
         if (canMoveTo(currPosition)){
-            elementList.add(animal);
+            elementList.put(animal.getPosition(), animal);
             return true;
         }
         return false;
     }
     @Override
     public boolean isOccupied(Vector2d position) {
-        if (objectAt(position) == null){
+        if(objectAt(position) == null){
             return false;
         }
         return true;
@@ -29,21 +27,7 @@ abstract class AbstractWorldMap implements IWorldMap{
 
     @Override
     public Object objectAt(Vector2d position) {
-        Object found = null;
-        for(int i = 0; i < elementList.size(); i++){
-            IMapElement element = elementList.get(i);
-            if (element.getPosition().equals(position)){
-                if (element instanceof Animal){
-                    return element;
-                }
-                else{
-                    if (found == null){
-                        found = element;
-                    }
-                }
-            }
-        }
-        return found;
+        return elementList.get(position);
     }
 
     protected abstract Vector2d upperRightMapCorner();

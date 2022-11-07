@@ -20,7 +20,8 @@ public class GrassField extends AbstractWorldMap{
         }
         Iterator<Vector2d> setIterator = set.iterator();
         while(setIterator.hasNext()) {
-            elementList.add(new Grass(setIterator.next()));
+            Vector2d pos = setIterator.next();
+            elementList.put(pos, new Grass(pos));
         }
     }
 
@@ -36,9 +37,10 @@ public class GrassField extends AbstractWorldMap{
     @Override
     protected Vector2d upperRightMapCorner() {
         Vector2d upperRight = new Vector2d(0,0);
-        for(int i = 0; i < elementList.size(); i ++){
-            IMapElement animal = elementList.get(i);
-            Vector2d pos = animal.getPosition();
+        Set<Vector2d> positions = elementList.keySet();
+        Iterator<Vector2d> it = positions.iterator();
+        while (it.hasNext()){
+            Vector2d pos = it.next();
             upperRight.x = Math.max(pos.x, upperRight.x);
             upperRight.y = Math.max(pos.y, upperRight.y);
         }
@@ -48,9 +50,10 @@ public class GrassField extends AbstractWorldMap{
     @Override
     protected Vector2d lowerLeftMapCorner() {
         Vector2d lowerLeft = new Vector2d(0,0);
-        for(int i = 0; i < elementList.size(); i ++){
-            IMapElement animal = elementList.get(i);
-            Vector2d pos = animal.getPosition();
+        Set<Vector2d> positions = elementList.keySet();
+        Iterator<Vector2d> it = positions.iterator();
+        while (it.hasNext()){
+            Vector2d pos = it.next();
             lowerLeft.x = Math.min(pos.x, lowerLeft.x);
             lowerLeft.y = Math.min(pos.y, lowerLeft.y);
         }
