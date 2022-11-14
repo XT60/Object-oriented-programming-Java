@@ -16,13 +16,13 @@ abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
     }
 
     @Override
-    public boolean place(Animal animal) {
+    public boolean place(Animal animal) throws IllegalArgumentException{
         Vector2d currPosition = animal.getPosition();
         if (canMoveTo(currPosition)){
             elementList.put(animal.getPosition(), animal);
             return true;
         }
-        return false;
+        throw new IllegalArgumentException( currPosition + " is not appropriate position for animal to place");
     }
     @Override
     public boolean isOccupied(Vector2d position) {

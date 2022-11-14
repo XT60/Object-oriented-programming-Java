@@ -53,7 +53,13 @@ public class GrassFieldIWorldMapTest {
         }
         for(int i = 0; i < falseTestPositions.length; i++){
             Animal animal = new Animal(falseTestPositions[i]);
-            assertFalse(map.place(animal));
+            try{
+                map.place(animal);
+                assertTrue(1==2);
+            }
+            catch (IllegalArgumentException e){
+                assertTrue(1==1);
+            }
         }
     }
 

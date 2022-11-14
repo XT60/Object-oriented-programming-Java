@@ -1,7 +1,7 @@
 package agh.ics.oop;
 
 public class OptionsParser {
-    public MoveDirection[] parse(String[] args ){
+    public MoveDirection[] parse(String[] args ) throws IllegalArgumentException{
         int n = args.length;
         MoveDirection[] data = new MoveDirection[n];
         int currIndex = 0;
@@ -23,6 +23,8 @@ public class OptionsParser {
                     data[currIndex] = MoveDirection.RIGHT;
                     currIndex ++;
                     break;
+                default:
+                    throw new IllegalArgumentException(args[i] + " is not legal move specification");
             }
         }
         if (currIndex == n){

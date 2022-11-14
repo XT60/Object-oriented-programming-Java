@@ -14,9 +14,11 @@ public class AnimalParseTest {
         String[][] inputs = {
                 {"f", "r", "l", "b"},
                 {"forw", "f", "kds", "l", "backward"},
-                {"b", "forward", "let", "r"},
+                {"b", "forward", "r"},
                 {"right", "h", "d", "left", "c"}
         };
+
+        Boolean[] exception = {false, true, false, true};
 
         MoveDirection[][] correctData = {
                 {MoveDirection.FORWARD, MoveDirection.RIGHT, MoveDirection.LEFT, MoveDirection.BACKWARD},
@@ -27,10 +29,15 @@ public class AnimalParseTest {
 
         OptionsParser myParser = new OptionsParser();
         for(int i = 0; i < inputs.length; i++){
-            MoveDirection[] output = myParser.parse(inputs[i]);
-            assertEquals(output.length, correctData[i].length);
-            for(int j = 0; j < output.length; j++){
-                assertEquals(output[j], correctData[i][j]);
+            try{
+                MoveDirection[] output = myParser.parse(inputs[i]);
+                assertEquals(output.length, correctData[i].length);
+                for(int j = 0; j < output.length; j++){
+                    assertEquals(output[j], correctData[i][j]);
+                }
+            }
+            catch(IllegalArgumentException e){
+                assertTrue(exception[i]);
             }
         }
     }
@@ -125,7 +132,9 @@ public class AnimalParseTest {
 
     Animal handleInput(String [] input){
         Animal myAnimal;
-        myAnimal = new Animal();
+        RectangularMap map = new RectangularMap(5, 5);
+        myAnimal = new Animal(map);
+        myAnimal.addObserver(map);
         OptionsParser myParser = new OptionsParser();
         MoveDirection[] myInput = myParser.parse(input);
         for( int i = 0; i < myInput.length; i++){
