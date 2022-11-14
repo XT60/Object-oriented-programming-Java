@@ -3,8 +3,9 @@ package agh.ics.oop;
 import java.util.*;
 
 public class GrassField extends AbstractWorldMap{
-
+    MapBoundary mapBoundery;
     public GrassField(int grassCount){
+        mapBoundery = new MapBoundary();
         int range = (int) Math.floor(Math.sqrt(10 * grassCount));
         Random rand = new Random();
         HashSet<Vector2d> set = new HashSet<Vector2d>();
@@ -21,9 +22,22 @@ public class GrassField extends AbstractWorldMap{
         Iterator<Vector2d> setIterator = set.iterator();
         while(setIterator.hasNext()) {
             Vector2d pos = setIterator.next();
-            elementList.put(pos, new Grass(pos));
+            Grass grass = new Grass(pos);
+            elementList.put(pos, grass);
+            mapBoundery.placeElement(grass);
         }
+
     }
+
+
+    @Override
+    public boolean place(Animal animal) throws IllegalArgumentException{
+        boolean res = super.place(animal);
+        animal.addObserver(mapBoundery);
+        mapBoundery.placeElement(animal);
+        return res;
+    }
+
 
     @Override
     public boolean canMoveTo(Vector2d position) {
@@ -36,27 +50,13 @@ public class GrassField extends AbstractWorldMap{
 
     @Override
     protected Vector2d upperRightMapCorner() {
-        Vector2d upperRight = new Vector2d(0,0);
-        Set<Vector2d> positions = elementList.keySet();
-        Iterator<Vector2d> it = positions.iterator();
-        while (it.hasNext()){
-            Vector2d pos = it.next();
-            upperRight.x = Math.max(pos.x, upperRight.x);
-            upperRight.y = Math.max(pos.y, upperRight.y);
-        }
-        return upperRight;
+        return mapBoundery.upperRightMapCorner();
     }
 
     @Override
     protected Vector2d lowerLeftMapCorner() {
-        Vector2d lowerLeft = new Vector2d(0,0);
-        Set<Vector2d> positions = elementList.keySet();
-        Iterator<Vector2d> it = positions.iterator();
-        while (it.hasNext()){
-            Vector2d pos = it.next();
-            lowerLeft.x = Math.min(pos.x, lowerLeft.x);
-            lowerLeft.y = Math.min(pos.y, lowerLeft.y);
-        }
-        return lowerLeft;
+        return mapBoundery.lowerLeftMapCorner();
     }
+
+
 }
