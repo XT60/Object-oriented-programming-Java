@@ -1,4 +1,7 @@
 package agh.ics.oop;
+import agh.ics.oop.gui.App;
+import javafx.application.Application;
+
 import static java.lang.System.out;
 
 
@@ -15,6 +18,7 @@ public class World {
         catch (IllegalArgumentException exc){
             System.out.println(exc.toString());
         }
+        Application.launch(App.class, args);
     }
 
     static void run(Direction[] arr){
