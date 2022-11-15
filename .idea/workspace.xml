@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="///">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -231,6 +231,7 @@
       <workItem from="1667899715399" duration="788000" />
       <workItem from="1667901123243" duration="365000" />
       <workItem from="1668441382295" duration="3989000" />
+      <workItem from="1668498619531" duration="5334000" />
     </task>
     <task id="LOCAL-00001" summary="lab01">
       <created>1665213426438</created>
@@ -288,6 +289,7 @@
         <watch expression="this.isPositionValid(position)" language="JAVA" />
         <watch expression="animals.get(3)" />
         <watch expression="elementList" language="JAVA" />
+        <watch expression="lowerLeft.x + i" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
