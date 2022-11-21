@@ -1,5 +1,7 @@
 package agh.ics.oop;
 
+import javafx.scene.layout.VBox;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -113,4 +115,28 @@ public class Animal implements IMapElement{
         return new Vector2d(this.position);
     }
 
+    @Override
+    public String getImageName() {
+        switch (this.direction){
+            case NORTH:
+                return "up.png";
+            case SOUTH:
+                return "down.png";
+            case EAST:
+                return "left.ong";
+            case WEST:
+                return "right";
+        }
+        return "error";
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

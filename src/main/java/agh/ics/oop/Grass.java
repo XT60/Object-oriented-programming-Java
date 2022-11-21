@@ -12,7 +12,13 @@ public class Grass implements IMapElement{
     }
 
     @Override
+    public String getImageName() {
+        return "grass.png";
+    }
+
+    @Override
     public Vector2d getPosition() {
         return new Vector2d(this.position);
     }
 }
+

@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="///">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/GuiElementBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IMapElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IMapElement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +112,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="AnimalParseTest.westBorderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AnimalParseTest.interpretationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -122,7 +125,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.AnimalParseTest.westBorderTest&quot;" />
+            <option value="&quot;agh.ics.oop.AnimalParseTest.interpretationTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -155,7 +158,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GrassFieldIWorldMapTest.canMoveToTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GrassFieldIWorldMapTest.placeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -168,7 +171,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;agh.ics.oop.GrassFieldIWorldMapTest.canMoveToTest&quot;" />
+            <option value="&quot;agh.ics.oop.GrassFieldIWorldMapTest.placeTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -180,18 +183,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.World" />
+      <item itemvalue="Gradle.AnimalParseTest.interpretationTest" />
+      <item itemvalue="Gradle.GrassFieldIWorldMapTest.placeTest" />
       <item itemvalue="Gradle.AnimalParseTest" />
-      <item itemvalue="Gradle.AnimalParseTest.westBorderTest" />
-      <item itemvalue="Gradle.GrassFieldIWorldMapTest.canMoveToTest" />
       <item itemvalue="Gradle.GrassFieldIWorldMapTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.AnimalParseTest" />
+        <item itemvalue="Gradle.AnimalParseTest.interpretationTest" />
+        <item itemvalue="Gradle.GrassFieldIWorldMapTest.placeTest" />
         <item itemvalue="Application.World" />
         <item itemvalue="Gradle.GrassFieldIWorldMapTest" />
-        <item itemvalue="Gradle.GrassFieldIWorldMapTest.canMoveToTest" />
-        <item itemvalue="Gradle.AnimalParseTest" />
-        <item itemvalue="Gradle.AnimalParseTest.westBorderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -232,6 +235,10 @@
       <workItem from="1667901123243" duration="365000" />
       <workItem from="1668441382295" duration="3989000" />
       <workItem from="1668498619531" duration="5334000" />
+      <workItem from="1669045818114" duration="4768000" />
+      <workItem from="1669052948413" duration="1062000" />
+      <workItem from="1669054019494" duration="679000" />
+      <workItem from="1669054729438" duration="2425000" />
     </task>
     <task id="LOCAL-00001" summary="lab01">
       <created>1665213426438</created>
@@ -286,10 +293,9 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="GradleRunConfiguration">
-        <watch expression="this.isPositionValid(position)" language="JAVA" />
-        <watch expression="animals.get(3)" />
-        <watch expression="elementList" language="JAVA" />
-        <watch expression="lowerLeft.x + i" language="JAVA" />
+        <watch expression="&quot;./src/main/resources/&quot; + element.getImageName()" language="JAVA" />
+        <watch expression="new File(&quot;&quot;).getAbsolutePath()" language="JAVA" />
+        <watch expression="path" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

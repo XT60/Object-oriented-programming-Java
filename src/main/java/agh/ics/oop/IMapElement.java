@@ -5,12 +5,17 @@ package agh.ics.oop;
 // nie mają wiele wspólnego kodu, dlatego uważam że interface IMapElement w zupełności wystarczy żeby uprościć kod w
 // klasach aktualnie implementujących interface IWorldMap.
 
+import agh.ics.oop.gui.GuiElementBox;
+import javafx.scene.layout.VBox;
+
 public interface IMapElement {
+
     /**
      * Return object position.
-     *
      */
     public Vector2d getPosition();
+
+    public String getImageName();
 
 
 }
