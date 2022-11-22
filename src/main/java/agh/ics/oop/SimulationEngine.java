@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SimulationEngine implements IEngine, Runnable{
-    private MoveDirection[] moves;
+    protected MoveDirection[] directions;
     private IWorldMap map;
     private Vector2d[] initialPositions;
     public List<Animal> animalList = new ArrayList<Animal>();
     private IFrameChangeObserver gui;
     public int moveDelay;
 
-    public SimulationEngine(MoveDirection[] moves, AbstractWorldMap map, Vector2d[] initialPositions){
+    public SimulationEngine(MoveDirection[] directions, AbstractWorldMap map, Vector2d[] initialPositions){
         moveDelay = 300;
-        this.moves = moves;
+        this.directions = directions;
         this.map = map;
         this.initialPositions = initialPositions;
         for (int i = 0; i < initialPositions.length; i ++){
@@ -37,7 +37,7 @@ public class SimulationEngine implements IEngine, Runnable{
     @Override
     public void run() {
         int i = 0;
-        if (i >= moves.length){
+        if (i >= directions.length){
             return;
         }
         while(this.animalList.size() > 0){
@@ -50,10 +50,10 @@ public class SimulationEngine implements IEngine, Runnable{
                     System.out.println(e.toString());
                 }
                 Animal animal = this.animalList.get(a);
-                animal.move(moves[i]);
+                animal.move(directions[i]);
                 i++;
                 Platform.runLater(() -> { gui.newFrame(animal); });
-                if (i >= moves.length){
+                if (i >= directions.length){
                     return;
                 }
             }

@@ -5,38 +5,75 @@ import javafx.application.Application;
 
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 import static java.lang.System.out;
 
 
 public class App extends Application implements IFrameChangeObserver{
-    IEngine engine;
+    ThreadedSimulationEngine engine;
     GrassField map;
     private int columnWidth = 60;
     private int rowWidth = 60;
-
     private Vector2d lowerLeft;
     int mapHeight;
     int mapWidth;
     private Map <IMapElement, GuiElementBox> boxMap;
-
     private GridPane gridPane;
     private Stage stage;
+    private TextField textField;
+    private Label errorMessage;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        Scene scene = new Scene(gridPane, 660, 660);
+        Button button = new Button("Start");
+        textField = new TextField();
+        button.setMinSize(100, 40);
+        textField.setMinSize(400, 50);
+        errorMessage = new Label();
+        errorMessage.setTextFill(Color.RED);
+        errorMessage.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.ITALIC, 16));
+
+        button.setOnAction(actionEvent -> {
+            String moveString = textField.getText();
+                try{
+                    List<String> moves = Arrays.asList(moveString.split(" "));
+                    MoveDirection[] directions = new OptionsParser().parse(listToArray(moves));
+                    errorMessage.setText("");
+                    engine.setDirections(directions);
+                    Thread engineThread = new Thread((Runnable)engine);
+                    engineThread.start();
+                }
+                catch (IllegalArgumentException e){
+                    errorMessage.setText(e.getMessage());
+                }
+
+        });
+
+        HBox hBox = new HBox(button, textField);
+        VBox vBox = new VBox(gridPane, hBox, errorMessage);
+        gridPane.setAlignment(Pos.CENTER);
+        vBox.setAlignment(Pos.CENTER);
+        hBox.setAlignment(Pos.CENTER);
+        errorMessage.setAlignment(Pos.CENTER);
+        Scene scene = new Scene(vBox, 800, 800);
         primaryStage.setScene(scene);
         stage.show();
     }
@@ -45,26 +82,22 @@ public class App extends Application implements IFrameChangeObserver{
         boxMap = new HashMap<IMapElement, GuiElementBox>();
         try {
 //            List<String> argList = getParameters().getRaw();
-            List<String> argList = new ArrayList<String>();
-            argList.add("left");
-            argList.add("left");
-            argList.add("right");
-            argList.add("right");
-            argList.add("forward");
-            argList.add("forward");
-            argList.add("backward");
-            argList.add("backward");
-            MoveDirection[] directions = new OptionsParser().parse(listToArray(argList));
+//            List<String> argList = new ArrayList<String>();
+//            argList.add("left");
+//            argList.add("left");
+//            argList.add("right");
+//            argList.add("right");
+//            argList.add("forward");
+//            argList.add("forward");
+//            argList.add("backward");
+//            argList.add("backward");
+//            MoveDirection[] directions = new OptionsParser().parse(listToArray(argList));
             Vector2d[] positions = {new Vector2d(4, 4), new Vector2d(6, 4)};
             map = new GrassField(10);
-            SimulationEngine engin = new SimulationEngine(directions, map, positions);
-            engin.setObserver(this);
-            engin.moveDelay = 500;
-            engine = (IEngine)engin;
+            engine = new ThreadedSimulationEngine(map, positions);
+            engine.setObserver(this);
+            engine.moveDelay = 500;
             initializeGridPane();
-
-            Thread thread = new Thread((Runnable)engine);
-            thread.start();
         }
         catch (IllegalArgumentException exc){
             System.out.println(exc.toString());

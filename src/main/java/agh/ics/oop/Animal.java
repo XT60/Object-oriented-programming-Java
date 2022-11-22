@@ -124,9 +124,9 @@ public class Animal implements IMapElement{
             case SOUTH:
                 return "down.png";
             case EAST:
-                return "left.ong";
-            case WEST:
                 return "right.png";
+            case WEST:
+                return "left.png";
         }
         return "error";
     }

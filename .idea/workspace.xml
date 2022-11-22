@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d35ff3ff-cd82-4079-a737-e7a2236911fd" name="Changes" comment="///">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IFrameChangeObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/ThreadedSimulationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Grass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IMapElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IMapElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/GuiElementBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/GuiElementBox.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +46,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -242,7 +239,7 @@
       <workItem from="1669052948413" duration="1062000" />
       <workItem from="1669054019494" duration="679000" />
       <workItem from="1669054729438" duration="13512000" />
-      <workItem from="1669106220718" duration="4906000" />
+      <workItem from="1669106220718" duration="9711000" />
     </task>
     <task id="LOCAL-00001" summary="lab01">
       <created>1665213426438</created>

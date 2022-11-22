@@ -24,7 +24,7 @@ public class OptionsParser {
                     currIndex ++;
                     break;
                 default:
-                    throw new IllegalArgumentException(args[i] + " is not legal move specification");
+                    throw new IllegalArgumentException("\"" + args[i] + "\" is not allowed move specification");
             }
         }
         if (currIndex == n){
