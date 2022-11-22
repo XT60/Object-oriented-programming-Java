@@ -129,8 +129,8 @@ public class App extends Application implements IFrameChangeObserver{
     }
 
     private boolean isGridPositionInBounds(Vector2d gridPosition){
-        return 0 < gridPosition.x && gridPosition.x < mapWidth &&
-                0 < gridPosition.y && gridPosition.y < mapHeight;
+        return 0 < gridPosition.x && gridPosition.x <= mapWidth &&
+                0 < gridPosition.y && gridPosition.y <= mapHeight;
     }
 
     private Vector2d convertToGridPosition(Vector2d worldPosition){
