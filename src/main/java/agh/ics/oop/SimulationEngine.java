@@ -57,7 +57,6 @@ public class SimulationEngine implements IEngine, Runnable{
                     return;
                 }
             }
-
         }
     }
 }

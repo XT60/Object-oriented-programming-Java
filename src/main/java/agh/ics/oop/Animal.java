@@ -9,7 +9,6 @@ public class Animal implements IMapElement{
     private MapDirection direction;
     private Vector2d position;
     private IWorldMap map;
-
     private List<IPositionChangeObserver> observers = new ArrayList<IPositionChangeObserver>();
 
     public Animal(){

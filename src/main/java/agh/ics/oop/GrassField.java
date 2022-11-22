@@ -26,9 +26,7 @@ public class GrassField extends AbstractWorldMap{
             elementList.put(pos, grass);
             mapBoundery.placeElement(grass);
         }
-
     }
-
 
     @Override
     public boolean place(Animal animal) throws IllegalArgumentException{
@@ -37,7 +35,6 @@ public class GrassField extends AbstractWorldMap{
         mapBoundery.placeElement(animal);
         return res;
     }
-
 
     @Override
     public boolean canMoveTo(Vector2d position) {

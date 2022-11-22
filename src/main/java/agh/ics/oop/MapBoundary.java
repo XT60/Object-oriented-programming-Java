@@ -4,7 +4,6 @@ import javax.naming.directory.InvalidAttributesException;
 import java.util.ArrayList;
 
 public class MapBoundary implements IPositionChangeObserver{
-
     ArrayList<IMapElement> xAxisElements;
     ArrayList<IMapElement> yAxisElements;
 
@@ -12,7 +11,6 @@ public class MapBoundary implements IPositionChangeObserver{
         xAxisElements = new ArrayList<IMapElement>();
         yAxisElements = new ArrayList<IMapElement>();
     }
-
 
     private Animal popAnimal(ArrayList<IMapElement> list, Vector2d position){
         int len = list.size();
@@ -25,7 +23,6 @@ public class MapBoundary implements IPositionChangeObserver{
         }
         throw new IllegalArgumentException("haven't found animal at " + position.toString());
     }
-
 
     private boolean cmp(IMapElement fst, IMapElement sec, int axisValue){
         Vector2d fstPos = fst.getPosition();
@@ -60,7 +57,6 @@ public class MapBoundary implements IPositionChangeObserver{
             return false;
         }
         return true;
-
     }
 
     private void addElement(ArrayList<IMapElement> list, IMapElement element, int axisValue){

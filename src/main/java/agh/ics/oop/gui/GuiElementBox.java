@@ -17,7 +17,6 @@ public class GuiElementBox{
     private String baseLabel;
     private Vector2d position;
     private MapDirection direction;
-
     public VBox overlappedVBox;
 
     

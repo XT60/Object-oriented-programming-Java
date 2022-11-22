@@ -64,7 +64,6 @@ public class App extends Application implements IFrameChangeObserver{
                 catch (IllegalArgumentException e){
                     errorMessage.setText(e.getMessage());
                 }
-
         });
 
         HBox hBox = new HBox(button, textField);
@@ -81,17 +80,6 @@ public class App extends Application implements IFrameChangeObserver{
     public void init(){
         boxMap = new HashMap<IMapElement, GuiElementBox>();
         try {
-//            List<String> argList = getParameters().getRaw();
-//            List<String> argList = new ArrayList<String>();
-//            argList.add("left");
-//            argList.add("left");
-//            argList.add("right");
-//            argList.add("right");
-//            argList.add("forward");
-//            argList.add("forward");
-//            argList.add("backward");
-//            argList.add("backward");
-//            MoveDirection[] directions = new OptionsParser().parse(listToArray(argList));
             Vector2d[] positions = {new Vector2d(4, 4), new Vector2d(6, 4)};
             map = new GrassField(10);
             engine = new ThreadedSimulationEngine(map, positions);
@@ -102,7 +90,7 @@ public class App extends Application implements IFrameChangeObserver{
         catch (IllegalArgumentException exc){
             System.out.println(exc.toString());
         }
-        }
+    }
 
     private void initializeGridPane(){
         gridPane = new GridPane();
@@ -144,6 +132,7 @@ public class App extends Application implements IFrameChangeObserver{
         return 0 < gridPosition.x && gridPosition.x < mapWidth &&
                 0 < gridPosition.y && gridPosition.y < mapHeight;
     }
+
     private Vector2d convertToGridPosition(Vector2d worldPosition){
         int x = worldPosition.x - lowerLeft.x + 1;
         int y = lowerLeft.y + mapHeight - worldPosition.y;
@@ -194,19 +183,18 @@ public class App extends Application implements IFrameChangeObserver{
     public void newFrame(IMapElement element) {
         GuiElementBox elementBox = boxMap.get(element);
         Vector2d newPosition = element.getPosition();
-//        out.println(newPosition.toString() + element.getDirection().toString());
         if (elementBox.didPositionChange(newPosition)){
             VBox vBox = elementBox.vBox;
             ObservableList<Node> children = gridPane.getChildren();
             children.remove((Node)vBox);
             Vector2d gridPosition = convertToGridPosition(newPosition);
+            VBox overlappedVBox = elementBox.overlappedVBox;
+            if (overlappedVBox != null){
+                Vector2d oldGridPosition = convertToGridPosition(elementBox.getOldPosition());
+                gridPane.add(overlappedVBox, oldGridPosition.x , oldGridPosition.y, 1, 1);
+                elementBox.overlappedVBox = null;
+            }
             if (isGridPositionInBounds(gridPosition)){
-                VBox overlappedVBox = elementBox.overlappedVBox;
-                if (overlappedVBox != null){
-                    Vector2d oldGridPosition = convertToGridPosition(elementBox.getOldPosition());
-                    gridPane.add(overlappedVBox, oldGridPosition.x , oldGridPosition.y, 1, 1);
-                    elementBox.overlappedVBox = null;
-                }
                 for (Node child : children) {
                     Integer column = GridPane.getColumnIndex(child);
                     Integer row = GridPane.getRowIndex(child);
@@ -218,7 +206,6 @@ public class App extends Application implements IFrameChangeObserver{
                 }
                 gridPane.add(vBox, gridPosition.x , gridPosition.y, 1, 1);
             }
-//            out.println("added to: " + gridPosition.toString());
         }
         elementBox.updateVBox(element);
     }

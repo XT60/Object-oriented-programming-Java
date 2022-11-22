@@ -74,6 +74,7 @@ public class Vector2d {
         }
         return true;
     }
+
     Vector2d opposite(){
         return new Vector2d(this.y, this.x);
     }
