@@ -8,6 +8,8 @@ package agh.ics.oop;
 import agh.ics.oop.gui.GuiElementBox;
 import javafx.scene.layout.VBox;
 
+import java.util.Map;
+
 public interface IMapElement {
 
     /**
@@ -17,5 +19,5 @@ public interface IMapElement {
 
     public String getImageName();
 
-
+    public MapDirection getDirection();
 }

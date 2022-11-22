@@ -117,6 +117,7 @@ public class Animal implements IMapElement{
 
     @Override
     public String getImageName() {
+//        System.out.println(direction);
         switch (this.direction){
             case NORTH:
                 return "up.png";
@@ -125,9 +126,14 @@ public class Animal implements IMapElement{
             case EAST:
                 return "left.ong";
             case WEST:
-                return "right";
+                return "right.png";
         }
         return "error";
+    }
+
+    @Override
+    public MapDirection getDirection() {
+        return direction;
     }
 
     @Override

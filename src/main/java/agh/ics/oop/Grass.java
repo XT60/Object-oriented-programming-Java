@@ -17,6 +17,11 @@ public class Grass implements IMapElement{
     }
 
     @Override
+    public MapDirection getDirection() {
+        return MapDirection.NORTH;
+    }
+
+    @Override
     public Vector2d getPosition() {
         return new Vector2d(this.position);
     }

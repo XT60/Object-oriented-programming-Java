@@ -10,7 +10,6 @@ public class World {
         Application.launch(App.class, args);
     }
 
-
     static void run(Direction[] arr){
         int len = arr.length;
         out.println("Start");
@@ -32,6 +31,7 @@ public class World {
         }
         out.println("Stop");
     }
+
     static Direction[] convertToDirection(String[] arr){
         int len = arr.length;
         Direction[] res = new Direction[len];
